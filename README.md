@@ -17,3 +17,4 @@ Um pouco mais sobre markdown:
 2. Formatação de textos
 3. Formatação de codigos
 4. ...
+g2d.fill(getShape());
