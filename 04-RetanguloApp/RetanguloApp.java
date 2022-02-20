@@ -10,11 +10,18 @@ public class RetanguloApp {
 		retangulo1.print();
 		retangulo2.print();
 		
-		retangulo1.area();
-		retangulo2.area();
+		int area1 = retangulo1.area();
+		int area2 = retangulo2.area();
+		
+		System.out.format("A area do retangulo1 e %d\n", area1);
+		System.out.format("A area do retangulo2 e %d\n", area2);
+		
 		
 		retangulo1.drag(10,10);
 		retangulo2.drag(20,20);
+		
+		retangulo1.print();
+		retangulo2.print();
     }
 }
 
@@ -33,17 +40,18 @@ class Retangulo {
 		System.out.format("Retangulo na posicao (%d, %d) com o ladoA tendo %d de largura e o ladoB tendo %d de altura.\n", this.x, this.y, this.ladoA, this.ladoB);
 	}
 	
-	public void area(){
+	public int area(){
 		int area = ladoA*ladoB;
-		System.out.format("A area do retangulo e %d\n", area);
+		return area;
  }
  
 	public void drag (int dx, int dy){
-		int novoX = x + dx;
-		int novoY = y + dy;
-		System.out.format("A nova pocisao do retangulo e (%d,%d)\n", novoX, novoY);
+		this.x = this.x + dx;
+		this.y = this.y + dy;
+		
  }
 }
+
 
 
 
