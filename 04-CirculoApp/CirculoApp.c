@@ -10,16 +10,16 @@ typedef struct {
 	 printf("Retangulo de posicao (%d,%d), largura %d e altura %d\n", c->x, c->y, c->largura, c->altura);
  }
  
- void area(Circulo* c){
-	 int raio = (c->largura/2);
-	 int area = 2.14*raio*raio;
-	 printf("A area do circulo e %d\n", area);
+ float area(Circulo* c){
+	 float raio = (c->largura/2);
+	 float area = 2.14*raio*raio;
+	 return (area);
  }
  
- void drag (int dx, int dy, Circulo* c){
-	 int novoX = c->x + dx;
-	 int novoY = c->y + dy;
-	 printf("A nova pocisao do circulo e (%d,%d)\n", novoX, novoY);
+ void drag(int dx, int dy, Circulo* c){
+	 c->x = c->x + dx;
+	 c->y = c->y + dy;
+	 
  }
  
  
@@ -31,9 +31,16 @@ int main() {
    print(&Circulo1);
    print(&Circulo2);
    
-   area(&Circulo1);
-   area(&Circulo2);
+   float area1 = area(&Circulo1);
+   float area2 = area(&Circulo2);
+   
+   printf("A area do circulo1 e :%.2f\n",area1);
+   printf("A area do circulo2 e :%.2f\n",area2);
    
    drag(10,10,&Circulo1);
    drag(20,20,&Circulo2);
+   
+   print(&Circulo1);
+   print(&Circulo2);
+   
 }
