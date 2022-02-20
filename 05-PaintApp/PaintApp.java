@@ -20,20 +20,22 @@ class PaintFrame extends JFrame{
 	}
 	public void paint (Graphics g){
 		super.paint(g);
-		g.setColor(new Color(0,255,0));
-		this.r1.paintDraw(g);
+		this.r1.setCor(new Color(0,255,0));
+		this.r1.paint(g, true);
 		this.r1.drag(50,50);
-		g.setColor(new Color(0,0,0));
-		this.r1.paintFill(g);
+		this.r1.setCor(new Color(0,0,0));
+		this.r1.paint(g, false);
 		this.r1.drag(50,50);
-		g.setColor(new Color(255,0,0));
-		this.r1.paintFill(g);
+		this.r1.setCor(new Color(250,0,0));
+		this.r1.paint(g, true);
+
 	}
 }
 
 class Retangulo {
     private int ladoA, ladoB;
 	private int x, y;
+	private Color cor;
 	
 	public Retangulo( int x, int y, int ladoA, int ladoB){
 		this.x = x;
@@ -56,14 +58,18 @@ class Retangulo {
 		this.y = this.y + dy;
 		
  }
-	void paintDraw(Graphics g ){
+	void paint(Graphics g, boolean preenchido ){
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.drawRect(this.x, this.y, this.ladoA, this.ladoB);
+		g.setColor(cor);
+		if(preenchido){
+			g2d.fillRect(this.x, this.y, this.ladoA, this.ladoB);
+		}else{
+			g2d.drawRect(this.x, this.y, this.ladoA, this.ladoB);
+		}
 	}
 	
-	void paintFill(Graphics g ){
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.fillRect(this.x, this.y, this.ladoA, this.ladoB);
+	void setCor(Color cor){
+		this.cor = cor;
 	}
 	
  
