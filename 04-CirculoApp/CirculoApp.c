@@ -7,7 +7,7 @@ typedef struct {
 }Circulo;
  
  void print(Circulo* c){
-	 printf("Retangulo de posicao (%d,%d), largura %d e altura %d\n", c->x, c->y, c->largura, c->altura);
+	 printf("Circulo de posicao (%d,%d), largura %d e altura %d\n", c->x, c->y, c->largura, c->altura);
  }
  
  float area(Circulo* c){
